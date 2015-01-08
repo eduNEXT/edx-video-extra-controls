@@ -4,7 +4,7 @@ var videoActions = videoActions || {};
 $(document).ready(function() {
 
 	// Declaring semi-global variables for later use.
-	var video = $(videoActions.video);
+	var video = $('.video');
 	var state;
 	var time;
 	var problemCounter;
@@ -102,7 +102,7 @@ $(document).ready(function() {
 	videoActions.actionFunction = changeSlides;
 	videoActions.slidePlaceholder = '#slideImage';
 	// videoActions.addVideoPlayPauseListeners();
-	videoActions.video = '.video';
+
 
 });
 
