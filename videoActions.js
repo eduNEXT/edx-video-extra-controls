@@ -98,7 +98,7 @@ $(document).ready(function() {
 
 	videoActions.addVideoPlayPauseListeners = addVideoPlayPauseListeners;
 
-	//api calls should be else where
+	//calls to videoActions api, they should be else where
 	videoActions.actionFunction = changeSlides;
 	videoActions.slidePlaceholder = '#slideImage';
 	// videoActions.addVideoPlayPauseListeners();
