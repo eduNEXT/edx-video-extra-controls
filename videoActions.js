@@ -84,7 +84,9 @@ $(document).ready(function() {
 	}
 
 	function changeSlides(time, obj) {
-		$(videoActions.slidePlaceholder).attr("src", obj.url);
+		if(obj){
+			$(videoActions.slidePlaceholder).attr("src", obj.url);
+		}
 	}
 
 	function popUpQuestion() {
