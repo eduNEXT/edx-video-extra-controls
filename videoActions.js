@@ -1,9 +1,16 @@
 // Global variable popUpProblemTimer is defined in the HTML.
 var videoActions = videoActions || {};
+
+//api calls should be else where
+videoActions.actionFunction = changeSlides;
+videoActions.slidePlaceholder = '#slideImage';
+// videoActions.addVideoPlayPauseListeners();
+videoActions.video = '.video';
+
 $(document).ready(function() {
 
 	// Declaring semi-global variables for later use.
-	var video = $('.video');
+	var video = $(videoActions.video);
 	var state;
 	var time;
 	var problemCounter;
@@ -73,18 +80,16 @@ $(document).ready(function() {
 				if (time >= obj.start && time < obj.end) {
 					console.log(obj);
 					videoActions.actionFunction(time, obj);
-				}
-				else{
+				} else {
 					videoActions.actionFunction(time, null);
 				}
 			})
-
 		}, 500);
 
 	}
 
 	function changeSlides(time, obj) {
-		if(obj){
+		if (obj) {
 			$(videoActions.slidePlaceholder).attr("src", obj.url);
 		}
 	}
@@ -98,11 +103,6 @@ $(document).ready(function() {
 	videoActions.popUpQuestion = popUpQuestion;
 
 	videoActions.addVideoPlayPauseListeners = addVideoPlayPauseListeners;
-
-	//api calls should be else where
-	videoActions.actionFunction = changeSlides;
-	videoActions.slidePlaceholder = '#slideImage';
-	videoActions.addVideoPlayPauseListeners();
 
 });
 
