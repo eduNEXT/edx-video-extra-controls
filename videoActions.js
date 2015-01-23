@@ -16,19 +16,19 @@ $(document).ready(function() {
 		// Log play/pause events from the player.
 		// Also set the play/pause external control properly.
 		video.on('pause', function() {
-			Logger.log("harvardx.video_embedded_problems", {
+			Logger.log("edunext.video_slide_sync", {
 				"video_event" : "pause"
 			});
-			console.log('pause');
+			// console.log('pause');
 			$('#playpauseicon').html('&#8227;');
 			$('#playpauseword').html('Play');
 		});
 
 		video.on('play', function() {
-			Logger.log("harvardx.video_embedded_problems", {
+			Logger.log("edunext.video_slide_sync", {
 				"video_event" : "play"
 			});
-			console.log('play');
+			// console.log('play');
 			// Also set the play/pause external control properly.
 			$('#playpauseicon').html('||');
 			// Need a better-looking pause icon.
@@ -38,7 +38,7 @@ $(document).ready(function() {
 	}
 
 
-	console.log('ready');
+	// console.log('ready');
 	var waitForVid = setInterval(function() {
 
 		state = video.data('video-player-state');
@@ -49,10 +49,10 @@ $(document).ready(function() {
 		}
 
 		if (state /*&& state.videoPlayer.isCued()*/) {
-			console.log('video data loaded');
+			// console.log('video data loaded');
 			clearInterval(waitForVid);
 			var pause = setTimeout(function() {
-				console.log('done waiting');
+				// console.log('done waiting');
 				//setUpData();
 				//setUpControls();
 				mainLoop();
@@ -69,10 +69,10 @@ $(document).ready(function() {
 			// Forced update of time. Required for Safari.
 			time = state.videoPlayer.currentTime;
 
-			console.log('time:', time);
+			// console.log('time:', time);
 			_.each(popUpProblemTimer, function(obj) {
 				if (time >= obj.start && time < obj.end) {
-					console.log(obj);
+					// console.log(obj);
 					videoActions.actionFunction(time, obj);
 				} else {
 					videoActions.actionFunction(time, null);
